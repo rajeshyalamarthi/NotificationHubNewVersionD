@@ -150,7 +150,7 @@ end
 
 ---Insert
 
-----Update
+----Edit--------------------------------------------------------------------------------
 
  Create procedure EditProc
  (@Id int, @Name Nvarchar(50),@Action VARCHAR(10))
@@ -201,16 +201,79 @@ end
 
 
 
+ ---------------------------------------------Approval-----------------------------
+
+
+ insert into AspNetRoles( Id ,Name) values(2,'ServiceLine Manager')
+  insert into AspNetRoles( Id ,Name) values(3,'Operation Manager')
+ insert into AspNetUserRoles( UserId ,RoleId) values('d762a17f-ea8d-4ef8-aa0f-02fcf09188b7',3)
+
+select * from ServiceLine
+select * from Event
+ insert into ServiceLine(Name) values('Developers')
+ insert into Event(Name,SourceId,Mandatory) values('PayRise',1,1)
+ select * from Template
+
+ insert into Template(Name,OperationManagerId,ServiceLineId,EventId)
+ select OManagerId,ServiceLineId,EventId from 
+ table AspNetUserRoles where OManagerId = ( select UserId from  AspNetUserRoles where RoleId=3) 
+ inner join  ServiceLine on ServiceLine.Id=1
+ inner join  Event on Even
+
+ -------------------------------------
+ 
+alter procedure DisplayAccessproc 
+
+(@Action VARCHAR(10))
+as begin
+set nocount on;
+--select
+if @Action= 'SELECT'
+begin
+select e.Id, e.Name, u.UserName from Template e, AspNetUsers u,AspNetUserRoles ur where u.Id = e.OperationManagerId and u.Id = ur.UserId and not  e.ApprovalStatusId=3 ;
+end
+end
+--------------------------------------------------------------------------------------
 
 
 
+ 
+ insert into Template(Name,OperationManagerId,ServiceLineId,EventId,ApprovalStatusId) values('Greeting2','d762a17f-ea8d-4ef8-aa0f-02fcf09188b7',1,1,1)
 
 
+ ---------------------------------------------------------------------
+ select * from ApprovalStatus
+ insert into ApprovalStatus(Name) values ('Waiting')
+ insert into ApprovalStatus(Name) values('Approved')
+  insert into ApprovalStatus(Name) values('Decline')
+
+  alter table Template
+  add ApprovalStatusId int foreign key references ApprovalStatus(Id)
+  Select * from Template
+
+  UPDATE Template
+SET ApprovalStatusId = 1
+WHERE Name='Greeting';
+
+--------------------------------------------------update approval------------
 
 
+ alter procedure UpdateTemp
+ (@Id int,@Action VARCHAR(10))
+  as
+ begin
+ set nocount on;
+if @Action='Approved'
+begin
+Update Template  set ApprovalStatusId = 2  where Id= @Id
+end
+if @Action='Declined'
+begin
+update Template  set ApprovalStatusId = 3  where Id= @Id
+end
+end
 
-
-
+select * from Template
 
 
 
