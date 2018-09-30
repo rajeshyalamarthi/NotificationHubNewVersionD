@@ -13,6 +13,7 @@ namespace DAL.Repository
     public class SourecDal
     {
         public List<Source> Sourceslist = new List<Source>();
+        public List<TemplateAccess> templateslist = new List<TemplateAccess>();
 
         public List<Source> GetSources()
         {
@@ -44,6 +45,50 @@ namespace DAL.Repository
 
 
         }
+
+        //---------------------------------------------------------------------------------------
+        public List<TemplateAccess> GetTemplates()
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = "Data Source =.; Initial Catalog = NHUB; Integrated Security = True";
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("DisplayAccessproc", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "SELECT";
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        templateslist.Add(new TemplateAccess
+                        {
+                            TemplateName= (sqlDataReader ["Name"].ToString()),
+                            OperationManager=(sqlDataReader["UserName"] .ToString()),
+
+
+                            //Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
+                            //Name = (sqlDataReader["Name"].ToString()),
+                        });
+
+                    }
+                }
+            }
+            return templateslist;
+
+
+
+
+
+        }
+
+
+        //-----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
         public void Entersource(string Name)

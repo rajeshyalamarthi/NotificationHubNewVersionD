@@ -16,3 +16,9 @@ D:\NotificationHub-rajesh--master\NotificationHubPortal\DAL\obj\Debug\DAL.csproj
 D:\NotificationHub-rajesh--master\NotificationHubPortal\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\NotificationHub-rajesh--master\NotificationHubPortal\DAL\obj\Debug\DAL.dll
 D:\NotificationHub-rajesh--master\NotificationHubPortal\DAL\obj\Debug\DAL.pdb
+D:\NotificationHubNewVersionD\NotificationHubPortal\DAL\bin\Debug\DAL.dll
+D:\NotificationHubNewVersionD\NotificationHubPortal\DAL\bin\Debug\DAL.pdb
+D:\NotificationHubNewVersionD\NotificationHubPortal\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\NotificationHubNewVersionD\NotificationHubPortal\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\NotificationHubNewVersionD\NotificationHubPortal\DAL\obj\Debug\DAL.dll
+D:\NotificationHubNewVersionD\NotificationHubPortal\DAL\obj\Debug\DAL.pdb
