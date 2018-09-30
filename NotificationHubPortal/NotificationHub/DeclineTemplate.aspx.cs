@@ -10,11 +10,13 @@ namespace NotificationHub
 {
     public partial class DeclineTemplate : System.Web.UI.Page
     {
+        int s, Aid, Did;
         protected void Page_Load(object sender, EventArgs e)
         {
-            int s = Convert.ToInt32(Request.QueryString["id"]);
-            SourecDal repo = new SourecDal();
-            repo.TempDecline(s);
+          
+            Aid = Convert.ToInt32(Request.QueryString["id"]);
+            Did = Convert.ToInt32(Request.QueryString["id"]);
+            
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -24,7 +26,11 @@ namespace NotificationHub
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            s = Convert.ToInt32(Request.QueryString["id"]);
+            SourecDal repo = new SourecDal();
+            repo.TempDecline(s);
 
+            Response.Redirect("~/ApprovalForm.aspx");
         }
     }
 }

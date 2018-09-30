@@ -10,7 +10,7 @@ namespace NotificationHub
 {
     public partial class ApprovalForm : System.Web.UI.Page
     {
-        
+      
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,10 +20,8 @@ namespace NotificationHub
 
             SourecDal repo = new SourecDal();
             repo.GetTemplates();
-            int c = repo.templateslist.Count;
-            HyperLink[] hyper = new HyperLink[c];
-            HyperLink[] hyper1 = new HyperLink[c];
-            for (int count=0;count< repo.templateslist.Count; count++)
+
+            for(int count=0;count< repo.templateslist.Count; count++)
             {
                 TableRow tableRow = new TableRow();
                 table.Rows.Add(tableRow);
@@ -44,17 +42,17 @@ namespace NotificationHub
                 label2.Width = 250;
                 PlaceHolder1.Controls.Add(label2);
 
-                hyper[count] = new HyperLink();
-                hyper[count].Text = "Approve";
-                hyper[count].Width = 100;
-                hyper[count].NavigateUrl = ("~/AcceptTemplate.aspx?id=" + Convert.ToString(repo.templateslist[count].Id));
-                PlaceHolder1.Controls.Add(hyper[count]);
+               HyperLink hyper = new HyperLink();
+                hyper.Text = "Approve";
+                hyper.Width = 100;
+                hyper.NavigateUrl = ("~/AcceptTemplate.aspx?id=" + Convert.ToString(repo.templateslist[count].Id));
+                PlaceHolder1.Controls.Add(hyper);
 
-                 hyper1[count] = new HyperLink();
-                hyper1[count].Text = "Decline";
-                hyper1[count].Width = 400;
-                hyper1[count].NavigateUrl = ("~/DeclineTemplate.aspx?id=" + Convert.ToString(repo.templateslist[count].Id));
-                PlaceHolder1.Controls.Add(hyper1[count]);
+                HyperLink hyper1 = new HyperLink();
+                hyper1.Text = "Decline";
+                hyper1.Width = 400;
+                hyper1.NavigateUrl = ("~/DeclineTemplate.aspx?id=" + Convert.ToString(repo.templateslist[count].Id));
+                PlaceHolder1.Controls.Add(hyper1);
 
                
                 

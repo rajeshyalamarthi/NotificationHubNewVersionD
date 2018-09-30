@@ -8,7 +8,12 @@
     <br />
     <div>
 
-        <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+        <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+           <%-- <asp:HyperLink ID="HyperLink1" runat="server">Approved</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server">Declined</asp:HyperLink>--%>
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+
+        </asp:PlaceHolder>
     </div>
 
 
