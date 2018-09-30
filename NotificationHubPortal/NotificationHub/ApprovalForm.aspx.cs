@@ -53,6 +53,7 @@ namespace NotificationHub
                  hyper1[count] = new HyperLink();
                 hyper1[count].Text = "Decline";
                 hyper1[count].Width = 400;
+                hyper1[count].NavigateUrl = ("~/DeclineTemplate.aspx?id=" + Convert.ToString(repo.templateslist[count].Id));
                 PlaceHolder1.Controls.Add(hyper1[count]);
 
                

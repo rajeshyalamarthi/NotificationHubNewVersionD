@@ -178,6 +178,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DeclineTemplate.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DeleteSource.aspx" />
     <Content Include="EditSource.aspx" />
@@ -373,6 +374,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeclineTemplate.aspx.cs">
+      <DependentUpon>DeclineTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeclineTemplate.aspx.designer.cs">
+      <DependentUpon>DeclineTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

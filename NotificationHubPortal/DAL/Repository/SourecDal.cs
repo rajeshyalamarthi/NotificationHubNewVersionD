@@ -157,7 +157,27 @@ namespace DAL.Repository
 
                 SqlCommand sqlCommand = new SqlCommand("UpdateTemp", connection);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "EDIT";
+                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "Approved";
+
+                sqlCommand.Parameters.Add("@Id", SqlDbType.Int, 5).Value = Id;
+                sqlCommand.ExecuteNonQuery();
+
+
+            }
+
+        }
+
+        //---------------------------------------------- Decline
+        public void TempDecline(int Id)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = "Data Source=.;Initial Catalog=NHUB;Integrated Security=True";
+                connection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand("UpdateTemp", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "Declined";
 
                 sqlCommand.Parameters.Add("@Id", SqlDbType.Int, 5).Value = Id;
                 sqlCommand.ExecuteNonQuery();
