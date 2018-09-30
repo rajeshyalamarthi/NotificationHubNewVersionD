@@ -10,7 +10,12 @@
     <h2>Confirmation</h2>
     <form id="form1" runat="server">
         <div>
-            <h4>Are you Sure Yow Want to Approve Template -<asp:Image ID="Image1" runat="server" /> ?</h4>
+            <h4>Are you Sure You Want to Approve Template -<asp:Image ID="Image1" runat="server" /> ?</h4>
+            <br />
+            <br />
+<div align="center">
+ <asp:Button ID="Button1" runat="server" Text="Yes" Font-Size="Large" OnClick="Button1_Click" /> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="Button2" runat="server" Text="No" Font-Size="Large" OnClick="Button2_Click" />
+</div>
 
         </div>
     </form>

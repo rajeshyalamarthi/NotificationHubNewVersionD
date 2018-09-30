@@ -46,44 +46,7 @@ namespace DAL.Repository
 
         }
 
-        //---------------------------------------------------------------------------------------
-        public List<TemplateAccess> GetTemplates()
-        {
-            using (SqlConnection connection = new SqlConnection())
-            {
-                connection.ConnectionString = "Data Source =.; Initial Catalog = NHUB; Integrated Security = True";
-                connection.Open();
-                SqlCommand sqlCommand = new SqlCommand("DisplayAccessproc", connection);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "SELECT";
-                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
-                {
-                    while (sqlDataReader.Read())
-                    {
-                        templateslist.Add(new TemplateAccess
-                        {
-                            TemplateName= (sqlDataReader ["Name"].ToString()),
-                            OperationManager=(sqlDataReader["UserName"] .ToString()),
-
-
-                            //Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
-                            //Name = (sqlDataReader["Name"].ToString()),
-                        });
-
-                    }
-                }
-            }
-            return templateslist;
-
-
-
-
-
-        }
-
-
-        //-----------------------------------------------------------------------------------------------------
-
+   
 
 
 
@@ -147,5 +110,71 @@ namespace DAL.Repository
             }
 
         }
+
+
+        //-------------------------------------------------------------Approval-----------------------------------
+        public List<TemplateAccess> GetTemplates()
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = "Data Source =.; Initial Catalog = NHUB; Integrated Security = True";
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("DisplayAccessproc", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "SELECT";
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        templateslist.Add(new TemplateAccess
+                        { Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
+                            TemplateName = (sqlDataReader["Name"].ToString()),
+                            OperationManager = (sqlDataReader["UserName"].ToString()),
+
+
+                            //Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
+                            //Name = (sqlDataReader["Name"].ToString()),
+                        });
+
+                    }
+                }
+            }
+            return templateslist;
+
+
+
+
+
+        }
+
+        //-----------------------------------------------
+        public void TempUpdate(int Id)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = "Data Source=.;Initial Catalog=NHUB;Integrated Security=True";
+                connection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand("UpdateTemp", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "EDIT";
+
+                sqlCommand.Parameters.Add("@Id", SqlDbType.Int, 5).Value = Id;
+                sqlCommand.ExecuteNonQuery();
+
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

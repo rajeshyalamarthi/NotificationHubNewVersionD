@@ -8,7 +8,7 @@ namespace DAL.Model
 {
     public class TemplateAccess
     {
-
+        public int Id { get; set; }
         public string TemplateName { get; set; }
         public string OperationManager { get; set; }
     }
