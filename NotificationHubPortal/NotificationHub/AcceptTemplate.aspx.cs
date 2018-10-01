@@ -13,27 +13,18 @@ namespace NotificationHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    int s = Convert.ToInt32(Request.QueryString["id"]);
-            //    if (!IsPostBack)
-            //    {
-
-
-            //        SourecDal repo = new SourecDal();
-            //        List<TemplateAccess> l = repo.GetTemplates();
-
-            //        foreach (Source sou in l)
-            //        {
-            //            if (sou.Id == s)
-            //            {
-            //                TextBox1.Text = sou.Name;
-            //            }
-            //        }
-
-            //    }
-            //}
-
+            int s = Convert.ToInt32(Request.QueryString["id"]);
+            SourecDal repo = new SourecDal();
+            List<TemplateAccess> l = repo.GetTemplates();
+            ////Source so = new Source();
+            ///
+            foreach (TemplateAccess template in l)
+            {
+                if (template.Id == s)
+                {
+                    Label1.Text = template.TemplateName;
+                }
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

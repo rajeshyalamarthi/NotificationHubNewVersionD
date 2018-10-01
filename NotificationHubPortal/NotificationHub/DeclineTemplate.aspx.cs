@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DAL.Model;
 using DAL.Repository;
 
 namespace NotificationHub
@@ -13,13 +14,24 @@ namespace NotificationHub
         int s, Aid, Did;
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-            Aid = Convert.ToInt32(Request.QueryString["id"]);
-            Did = Convert.ToInt32(Request.QueryString["id"]);
-            
+            int s = Convert.ToInt32(Request.QueryString["id"]);
+            SourecDal repo = new SourecDal();
+            List<TemplateAccess> l = repo.GetTemplates();
+            ////Source so = new Source();
+            ///
+            foreach (TemplateAccess template in l)
+            {
+                if (template.Id == s)
+                {
+                    Label1.Text = template.TemplateName;
+                }
+            }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+
+    
+
+    protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/ApprovalForm.aspx");
         }

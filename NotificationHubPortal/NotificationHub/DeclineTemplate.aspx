@@ -10,7 +10,7 @@
     <h2>Confirmation</h2>
     <form id="form1" runat="server">
         <div>
-            <h4>Are you Sure You Want to Decline Template -<asp:Image ID="Image1" runat="server" /> ?</h4>
+            <h4>Are you Sure You Want to Decline Template -<asp:Label ID="Label1" runat="server"></asp:Label> ?</h4>
             <br />
             <br />
 <div align="center">
