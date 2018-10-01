@@ -230,7 +230,7 @@ set nocount on;
 --select
 if @Action= 'SELECT'
 begin
-select e.Id, e.Name, u.UserName from Template e, AspNetUsers u,AspNetUserRoles ur where u.Id = e.OperationManagerId and u.Id = ur.UserId and not  e.ApprovalStatusId=3 ;
+select e.Id, e.Name, u.UserName from Template e, AspNetUsers u,AspNetUserRoles ur where u.Id = e.OperationManagerId and u.Id = ur.UserId and   e.ApprovalStatusId=1 ;
 end
 end
 --------------------------------------------------------------------------------------
