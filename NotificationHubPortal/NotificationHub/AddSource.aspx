@@ -19,6 +19,7 @@
         <br />
 
         NAME :   <asp:TextBox ID="TextBox1" runat="server" Style="float:inherit" Font-Size="Large"></asp:TextBox>
+             <asp:Label ID="Label1" runat="server" Visible="False" ForeColor="#ff0000"></asp:Label>
         <br />
         <br />
         <br />

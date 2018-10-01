@@ -22,12 +22,24 @@ namespace NotificationHub
 
             SourecDal sourcerepo = new SourecDal();
 
-            sourcerepo.Entersource(TextBox1.Text + "\n");
+          
+
+            string text1 = TextBox1.Text;
+            if(text1 == null || text1== string.Empty)
+            {
+                Label1.Visible = true;
+                
+                Label1.Text = " Please Enter name";
+            }
+            else {
+                sourcerepo.Entersource(TextBox1.Text + "\n");
+
+                Response.Redirect("SourceHome.aspx");
+            }
 
 
 
-
-            Response.Redirect("SourceHome.aspx");
+          
         }
 
         protected void Button1_Click(object sender, EventArgs e)
