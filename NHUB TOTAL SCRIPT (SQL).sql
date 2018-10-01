@@ -1,8 +1,13 @@
 
 use NHUB
 
+alter table source 
+add IsActive bit;
 
-
+select * from source
+update Source set IsACtive =1 where Name='Rajesh1'
+update Source set IsACtive =1 where Id=1003
+update Source set IsACtive =1 where Name='SalesForce5'
 
 select *from AspNetUsers
 
@@ -144,12 +149,12 @@ set nocount on;
 --select
 if @Action= 'SELECT'
 begin
-select * from Source
+select * from Source where not  IsActive =0 ;
 end
 end
 
 ---Insert
-
+select * from Source
 ----Edit--------------------------------------------------------------------------------
 
  Create procedure EditProc
@@ -170,7 +175,7 @@ end
  end
 
  -------------------------------------------------------------------------
- Create procedure delproc
+ Alter procedure delproc
  (@Id int,@Action VARCHAR(10))
  as
  begin
@@ -178,7 +183,8 @@ end
  if @Action='DELETE'
 
  begin
-DELETE FROM Source WHERE Id = @Id
+ update source set IsActive =0 where Id=@Id
+--DELETE FROM Source WHERE Id = @Id
  
  end
  end
@@ -194,7 +200,7 @@ DELETE FROM Source WHERE Id = @Id
  set nocount on;
  if @Action= 'INSERT'
 begin
-insert into Source (Name) values(@Name)
+insert into Source (Name, IsActive) values(@Name,1)
 --insert into Products values(@PName,@Price,@ImageUrl,@Description,@BrandId)
 end
  end
@@ -302,6 +308,8 @@ begin
 select e.Id, e.Name, u.UserName from Template e, AspNetUsers u,AspNetUserRoles ur where u.Id = e.OperationManagerId and u.Id = ur.UserId and   e.ApprovalStatusId=3 ;
 end
 end
+
+select * from event
 
 
 
