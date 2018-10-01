@@ -238,7 +238,7 @@ end
 
 
  
- insert into Template(Name,OperationManagerId,ServiceLineId,EventId,ApprovalStatusId) values('Greeting4','d762a17f-ea8d-4ef8-aa0f-02fcf09188b7',1,1,1)
+ insert into Template(Name,OperationManagerId,ServiceLineId,EventId,ApprovalStatusId) values('BirthdayTemplate','d762a17f-ea8d-4ef8-aa0f-02fcf09188b7',1,1,1)
 
 
  ---------------------------------------------------------------------
