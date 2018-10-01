@@ -409,8 +409,8 @@ D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\bin\Microsof
 D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\bin\Microsoft.Owin.Security.OAuth.xml
 D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\obj\Debug\NotificationHub.csprojAssemblyReference.cache
 D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\obj\Debug\NotificationHub.csproj.CoreCompileInputs.cache
 D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\obj\Debug\NotificationHub.csproj.CopyComplete
 D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\obj\Debug\NotificationHub.dll
 D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\obj\Debug\NotificationHub.pdb
-D:\NotificationHubNewVersionD\NotificationHubPortal\NotificationHub\obj\Debug\NotificationHub.csprojAssemblyReference.cache

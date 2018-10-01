@@ -172,14 +172,12 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddSource.aspx" />
     <Content Include="ApprovalForm.aspx" />
-    <Content Include="ApprovedTemplates.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="DeclinedForm.aspx" />
     <Content Include="DeclineTemplate.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DeleteSource.aspx" />
@@ -359,13 +357,6 @@
     <Compile Include="ApprovalForm.aspx.designer.cs">
       <DependentUpon>ApprovalForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ApprovedTemplates.aspx.cs">
-      <DependentUpon>ApprovedTemplates.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ApprovedTemplates.aspx.designer.cs">
-      <DependentUpon>ApprovedTemplates.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -383,13 +374,6 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DeclinedForm.aspx.cs">
-      <DependentUpon>DeclinedForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DeclinedForm.aspx.designer.cs">
-      <DependentUpon>DeclinedForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeclineTemplate.aspx.cs">
       <DependentUpon>DeclineTemplate.aspx</DependentUpon>
