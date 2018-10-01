@@ -238,7 +238,7 @@ end
 
 
  
- insert into Template(Name,OperationManagerId,ServiceLineId,EventId,ApprovalStatusId) values('Greeting2','d762a17f-ea8d-4ef8-aa0f-02fcf09188b7',1,1,1)
+ insert into Template(Name,OperationManagerId,ServiceLineId,EventId,ApprovalStatusId) values('Greeting4','d762a17f-ea8d-4ef8-aa0f-02fcf09188b7',1,1,1)
 
 
  ---------------------------------------------------------------------
@@ -274,6 +274,34 @@ end
 end
 
 select * from Template
+select * from Source
+-----------------------------------------------accepted and rejected templates procs
+create procedure DisplayApproved 
+
+(@Action VARCHAR(10))
+as begin
+set nocount on;
+--select
+if @Action= 'SELECT'
+begin
+select e.Id, e.Name, u.UserName from Template e, AspNetUsers u,AspNetUserRoles ur where u.Id = e.OperationManagerId and u.Id = ur.UserId and   e.ApprovalStatusId=2 ;
+end
+end
+
+
+
+------------------------
+create procedure DisplayDeclined 
+
+(@Action VARCHAR(10))
+as begin
+set nocount on;
+--select
+if @Action= 'SELECT'
+begin
+select e.Id, e.Name, u.UserName from Template e, AspNetUsers u,AspNetUserRoles ur where u.Id = e.OperationManagerId and u.Id = ur.UserId and   e.ApprovalStatusId=3 ;
+end
+end
 
 
 

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="ApprovalForm" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ApprovalForm.aspx.cs" Inherits="NotificationHub.ApprovalForm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:HyperLink ID="HyperLink1" runat="server" BorderStyle="Groove" ForeColor="#009900">Approved</asp:HyperLink>
+    <asp:HyperLink ID="HyperLink2" runat="server" BorderStyle="Groove" ForeColor="#cc0000">Declined</asp:HyperLink>
     <br />
     <br />
 

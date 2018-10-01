@@ -187,8 +187,80 @@ namespace DAL.Repository
 
         }
 
+        //-----------------------------------------------------------accepted and declined
+
+        public List<TemplateAccess> GetApproved()
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = "Data Source =.; Initial Catalog = NHUB; Integrated Security = True";
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("DisplayApproved", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "SELECT";
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        templateslist.Add(new TemplateAccess
+                        {
+                            Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
+                            TemplateName = (sqlDataReader["Name"].ToString()),
+                            OperationManager = (sqlDataReader["UserName"].ToString()),
 
 
+                            //Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
+                            //Name = (sqlDataReader["Name"].ToString()),
+                        });
+
+                    }
+                }
+            }
+            return templateslist;
+
+
+
+
+
+        }
+
+
+        //-------------------------------------------------------------------------------------------
+
+        public List<TemplateAccess> GetDeclined()
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = "Data Source =.; Initial Catalog = NHUB; Integrated Security = True";
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand("DisplayDeclined", connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.Add("@Action", SqlDbType.VarChar, 10).Value = "SELECT";
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        templateslist.Add(new TemplateAccess
+                        {
+                            Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
+                            TemplateName = (sqlDataReader["Name"].ToString()),
+                            OperationManager = (sqlDataReader["UserName"].ToString()),
+
+
+                            //Id = Convert.ToInt32(sqlDataReader["Id"].ToString()),
+                            //Name = (sqlDataReader["Name"].ToString()),
+                        });
+
+                    }
+                }
+            }
+            return templateslist;
+
+
+
+
+
+        }
 
 
 

@@ -8,30 +8,28 @@ using DAL.Repository;
 
 namespace NotificationHub
 {
-    public partial class ApprovalForm : System.Web.UI.Page
+    public partial class DeclinedWebForms : System.Web.UI.Page
     {
-      
         protected void Page_Load(object sender, EventArgs e)
         {
-
             Table table = new Table();
             table.ID = "1";
             PlaceHolder1.Controls.Add(table);
 
             SourecDal repo = new SourecDal();
-            repo.GetTemplates();
-            HyperLink1.NavigateUrl = ("~/ApprovedTemplates.aspx");
-            HyperLink2.NavigateUrl = ("~/DeclinedForm.aspx");
+            repo.GetDeclined();
+            //HyperLink1.NavigateUrl = ("~/ApprovedTemplates.aspx");
+            //HyperLink2.NavigateUrl = ("~/DeclinedForm.aspx");
 
-            for(int count=0;count< repo.templateslist.Count; count++)
+            for (int count = 0; count < repo.templateslist.Count; count++)
             {
                 TableRow tableRow = new TableRow();
                 table.Rows.Add(tableRow);
                 TableCell tableCell = new TableCell();
                 tableRow.Cells.Add(tableCell);
                 Label label = new Label();
-                label.Text = " NEW_TEMPLATE--";
-                label.Width = 200;
+                label.Text = "TEMPLATE--";
+                label.Width = 250;
                 PlaceHolder1.Controls.Add(label);
 
                 Label label1 = new Label();
@@ -44,23 +42,16 @@ namespace NotificationHub
                 label2.Width = 250;
                 PlaceHolder1.Controls.Add(label2);
 
-               HyperLink hyper = new HyperLink();
-                hyper.Text = "Approve";
-                hyper.Width = 100;
-                hyper.NavigateUrl = ("~/AcceptTemplate.aspx?id=" + Convert.ToString(repo.templateslist[count].Id));
-                PlaceHolder1.Controls.Add(hyper);
-
-                HyperLink hyper1 = new HyperLink();
-                hyper1.Text = "Decline";
-                hyper1.Width = 400;
-                hyper1.NavigateUrl = ("~/DeclineTemplate.aspx?id=" + Convert.ToString(repo.templateslist[count].Id));
-                PlaceHolder1.Controls.Add(hyper1);
+                Label label3 = new Label();
+                label3.Text = "Declined";
+                label3.Width = 200;
+                PlaceHolder1.Controls.Add(label3);
 
 
 
-               
-                
+
             }
         }
+
     }
-}
+    }
